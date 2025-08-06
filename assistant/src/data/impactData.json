@@ -1,0 +1,645 @@
+{
+  "plastic bag": {
+    "co2": 0.1,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 5,
+    "alternatives": ["cloth bag", "paper bag", "reusable tote", "polybag", "polyethene bag", "carrier bag", "shopping bag"],
+    "synonyms": ["plastic bag", "polybag", "polyethene bag", "carrier bag", "shopping bag"],
+    "ecoFriendly": false,
+    "description": "Single-use plastic bags take hundreds of years to decompose and contribute significantly to ocean pollution."
+  },
+  "cloth bag": {
+    "co2": 0.01,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.1,
+    "alternatives": ["plastic bag", "paper bag", "reusable tote", "jute bag", "basket"],
+    "ecoFriendly": true,
+    "description": "Reusable cloth bags are biodegradable and can be used hundreds of times, making them an excellent eco-friendly choice."
+  },
+  "plastic bottle": {
+    "co2": 0.2,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 10,
+    "alternatives": ["reusable bottle", "glass bottle", "stainless steel bottle", "PET bottle", "water bottle", "cold drink bottle"],
+    "synonyms": ["plastic bottle", "PET bottle", "water bottle", "cold drink bottle"],
+    "ecoFriendly": false,
+    "description": "Plastic bottles are a major source of pollution and can take up to 450 years to decompose."
+  },
+  "reusable bottle": {
+    "co2": 0.02,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.2,
+    "alternatives": [],
+    "ecoFriendly": true,
+    "description": "Reusable bottles help reduce plastic waste and can last for years with proper care."
+  },
+  "paper bag": {
+    "co2": 0.05,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 2.5,
+    "alternatives": ["cloth bag", "reusable tote", "jute bag", "basket"],
+    "ecoFriendly": true,
+    "description": "Paper bags are biodegradable and recyclable, making them a better choice than plastic."
+  },
+  "straw": {
+    "co2": 0.01,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 0.5,
+    "alternatives": ["metal straw", "bamboo straw", "no straw"],
+    "ecoFriendly": false,
+    "description": "Plastic straws are often found in ocean pollution and harm marine life."
+  },
+  "metal straw": {
+    "co2": 0.005,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.05,
+    "alternatives": [],
+    "ecoFriendly": true,
+    "description": "Metal straws are durable, reusable, and help eliminate single-use plastic waste."
+  },
+  "coffee cup": {
+    "co2": 0.15,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 7.5,
+    "alternatives": ["reusable coffee cup", "ceramic mug"],
+    "ecoFriendly": false,
+    "description": "Disposable coffee cups often have plastic linings that make them difficult to recycle."
+  },
+  "reusable coffee cup": {
+    "co2": 0.02,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.2,
+    "alternatives": [],
+    "ecoFriendly": true,
+    "description": "Reusable coffee cups keep drinks hot longer and eliminate single-use waste."
+  },
+  "bamboo": {
+    "co2": 0.001,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.01,
+    "alternatives": [],
+    "ecoFriendly": true,
+    "description": "Bamboo is one of the most sustainable materials, growing quickly and being fully biodegradable."
+  }
+  ,
+  "plastic cutlery": {
+    "co2": 0.08,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 4,
+    "alternatives": ["metal cutlery", "bamboo cutlery", "compostable cutlery"],
+    "ecoFriendly": false,
+    "description": "Plastic cutlery is single-use and contributes to landfill and ocean pollution."
+  },
+  "metal cutlery": {
+    "co2": 0.01,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.1,
+    "alternatives": [],
+    "ecoFriendly": true,
+    "description": "Metal cutlery is reusable and durable, reducing single-use waste."
+  },
+  "plastic plate": {
+    "co2": 0.09,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 4.5,
+    "alternatives": ["ceramic plate", "glass plate", "metal plate", "compostable plate"],
+    "ecoFriendly": false,
+    "description": "Plastic plates are convenient but harmful to the environment."
+  },
+  "ceramic plate": {
+    "co2": 0.02,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.2,
+    "alternatives": [],
+    "ecoFriendly": true,
+    "description": "Ceramic plates are reusable and long-lasting, reducing waste."
+  },
+  "plastic cup": {
+    "co2": 0.07,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 3.5,
+    "alternatives": ["glass cup", "metal cup", "bamboo cup", "compostable cup", "disposable cup"],
+    "synonyms": ["plastic cup", "disposable cup"],
+    "ecoFriendly": false,
+    "description": "Plastic cups are a major source of single-use waste."
+  },
+  "glass cup": {
+    "co2": 0.015,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.15,
+    "alternatives": [],
+    "ecoFriendly": true,
+    "description": "Glass cups are reusable and recyclable, making them a sustainable choice."
+  },
+  "plastic container": {
+    "co2": 0.12,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 6,
+    "alternatives": ["glass container", "stainless steel container", "silicone container", "tupperware", "food box"],
+    "synonyms": ["plastic container", "tupperware", "food box"],
+    "ecoFriendly": false,
+    "description": "Plastic food containers can leach chemicals and contribute to pollution."
+  },
+  "glass container": {
+    "co2": 0.02,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.2,
+    "alternatives": [],
+    "ecoFriendly": true,
+    "description": "Glass containers are reusable, recyclable, and safe for food storage."
+  },
+  "silicone container": {
+    "co2": 0.01,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.1,
+    "alternatives": [],
+    "ecoFriendly": true,
+    "description": "Silicone containers are flexible, reusable, and durable."
+  },
+  "plastic wrap": {
+    "co2": 0.03,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 1.5,
+    "alternatives": ["beeswax wrap", "silicone lid", "reusable container", "cling film", "saran wrap"],
+    "synonyms": ["plastic wrap", "cling film", "saran wrap"],
+    "ecoFriendly": false,
+    "description": "Plastic wrap is difficult to recycle and often ends up in landfills."
+  },
+  "beeswax wrap": {
+    "co2": 0.002,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.02,
+    "alternatives": [],
+    "ecoFriendly": true,
+    "description": "Beeswax wraps are reusable and biodegradable, perfect for covering food."
+  },
+  "aluminum foil": {
+    "co2": 0.04,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 2,
+    "alternatives": ["reusable baking mat", "container"],
+    "ecoFriendly": false,
+    "description": "Aluminum foil can be recycled, but it's best to use it sparingly."
+  },
+  "plastic toothbrush": {
+    "co2": 0.02,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 1,
+    "alternatives": ["bamboo toothbrush", "electric toothbrush"],
+    "ecoFriendly": false,
+    "description": "Plastic toothbrushes contribute to landfill waste."
+  },
+  "bamboo toothbrush": {
+    "co2": 0.001,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.01,
+    "alternatives": [],
+    "ecoFriendly": true,
+    "description": "Bamboo toothbrushes are biodegradable and a great alternative."
+  },
+  "electric toothbrush": {
+    "co2": 0.015,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.15,
+    "alternatives": [],
+    "ecoFriendly": true,
+    "description": "Electric toothbrushes with replaceable heads reduce waste."
+  },
+  "plastic packaging": {
+    "co2": 0.25,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 12.5,
+    "alternatives": ["compostable packaging", "minimal packaging"],
+    "ecoFriendly": false,
+    "description": "Plastic packaging is a major source of pollution."
+  },
+  "compostable packaging": {
+    "co2": 0.01,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.1,
+    "alternatives": [],
+    "ecoFriendly": true,
+    "description": "Compostable packaging breaks down naturally and reduces landfill waste."
+  },
+  "plastic food bag": {
+    "co2": 0.06,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 3,
+    "alternatives": ["silicone food bag", "cloth food bag", "beeswax bag"],
+    "ecoFriendly": false,
+    "description": "Plastic food bags are single-use and pollute the environment."
+  },
+  "silicone food bag": {
+    "co2": 0.01,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.1,
+    "alternatives": [],
+    "ecoFriendly": true,
+    "description": "Silicone food bags are reusable, durable, and a great alternative."
+  },
+  "plastic glove": {
+    "co2": 0.03,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 1.5,
+    "alternatives": ["rubber glove", "compostable glove"],
+    "ecoFriendly": false,
+    "description": "Plastic gloves are often used once and discarded."
+  },
+  "rubber glove": {
+    "co2": 0.005,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.05,
+    "alternatives": [],
+    "ecoFriendly": true,
+    "description": "Rubber gloves are reusable and reduce single-use plastic waste."
+  },
+  "plastic water filter": {
+    "co2": 0.02,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 1,
+    "alternatives": ["stainless steel filter", "ceramic filter"],
+    "ecoFriendly": false,
+    "description": "Plastic water filters can be replaced with stainless steel or ceramic filters."
+  },
+  "ceramic water filter": {
+    "co2": 0.005,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.05,
+    "alternatives": [],
+    "ecoFriendly": true,
+    "description": "Ceramic water filters are reusable and reduce plastic waste."
+  },
+  "plastic pen": {
+    "co2": 0.01,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 0.5,
+    "alternatives": ["refillable pen", "pencil"],
+    "ecoFriendly": false,
+    "description": "Plastic pens are disposable and contribute to waste."
+  },
+  "refillable pen": {
+    "co2": 0.002,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.02,
+    "alternatives": [],
+    "ecoFriendly": true,
+    "description": "Refillable pens and pencils are sustainable alternatives."
+  },
+  "plastic razor": {
+    "co2": 0.02,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 1,
+    "alternatives": ["safety razor", "electric razor"],
+    "ecoFriendly": false,
+    "description": "Plastic razors are often single-use."
+  },
+  "safety razor": {
+    "co2": 0.003,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.03,
+    "alternatives": [],
+    "ecoFriendly": true,
+    "description": "Safety razors with metal handles and replaceable blades are sustainable."
+  },
+  "electric razor": {
+    "co2": 0.01,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.1,
+    "alternatives": [],
+    "ecoFriendly": true,
+    "description": "Electric razors are reusable and reduce the need for disposables."
+  },
+  "jute bag": {
+    "co2": 0.008,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.08,
+    "alternatives": ["plastic bag", "cloth bag", "paper bag", "reusable tote", "basket"],
+    "ecoFriendly": true,
+    "description": "Jute bags are biodegradable and a great alternative to plastic bags."
+  },
+  "basket": {
+    "co2": 0.005,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.05,
+    "alternatives": ["plastic bag", "cloth bag", "paper bag", "reusable tote", "jute bag"],
+    "ecoFriendly": true,
+    "description": "Baskets made from natural materials are reusable and sustainable."
+  },
+  "reusable tote": {
+    "co2": 0.01,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.1,
+    "alternatives": ["cloth bag", "jute bag", "basket"],
+    "ecoFriendly": true,
+    "description": "Reusable totes are made from durable materials like cloth, jute, or recycled plastics. They help reduce single-use plastic bag waste, can be used hundreds of times, and have a lower overall environmental impact when used regularly."
+  },
+  "newspaper": {
+    "co2": 0.03,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 1.2,
+    "alternatives": ["digital news", "recycled paper"],
+    "synonyms": ["newspaper", "news paper", "paper news"],
+    "ecoFriendly": false,
+    "description": "Newspapers use a lot of paper and ink, but can be recycled. Digital news is more eco-friendly."
+  },
+  "magazine": {
+    "co2": 0.04,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 1.5,
+    "alternatives": ["digital magazine", "recycled paper"],
+    "synonyms": ["magazine", "periodical", "journal"],
+    "ecoFriendly": false,
+    "description": "Magazines are often glossy and harder to recycle. Digital magazines are more sustainable."
+  },
+  "receipt": {
+    "co2": 0.005,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.2,
+    "alternatives": ["digital receipt", "email receipt"],
+    "synonyms": ["receipt", "bill", "invoice"],
+    "ecoFriendly": false,
+    "description": "Paper receipts are often coated and not recyclable. Digital receipts are better for the environment."
+  },
+  "plastic spoon": {
+    "co2": 0.02,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 0.8,
+    "alternatives": ["metal spoon", "bamboo spoon", "compostable spoon"],
+    "synonyms": ["plastic spoon", "disposable spoon"],
+    "ecoFriendly": false,
+    "description": "Plastic spoons are single-use and contribute to plastic pollution."
+  },
+  "plastic fork": {
+    "co2": 0.02,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 0.8,
+    "alternatives": ["metal fork", "bamboo fork", "compostable fork"],
+    "synonyms": ["plastic fork", "disposable fork"],
+    "ecoFriendly": false,
+    "description": "Plastic forks are single-use and contribute to plastic pollution."
+  },
+  "plastic knife": {
+    "co2": 0.02,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 0.8,
+    "alternatives": ["metal knife", "bamboo knife", "compostable knife"],
+    "synonyms": ["plastic knife", "disposable knife"],
+    "ecoFriendly": false,
+    "description": "Plastic knives are single-use and contribute to plastic pollution."
+  },
+  "tissue paper": {
+    "co2": 0.01,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.5,
+    "alternatives": ["cloth napkin", "recycled tissue"],
+    "synonyms": ["tissue paper", "tissue", "facial tissue", "napkin"],
+    "ecoFriendly": false,
+    "description": "Tissue paper is often single-use and not recycled. Cloth napkins are more sustainable."
+  },
+  "plastic straw": {
+    "co2": 0.01,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 0.5,
+    "alternatives": ["metal straw", "bamboo straw", "no straw"],
+    "synonyms": ["plastic straw", "disposable straw"],
+    "ecoFriendly": false,
+    "description": "Plastic straws are often found in ocean pollution and harm marine life."
+  },
+
+  "paper cup": {
+    "co2": 0.12,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 6,
+    "alternatives": ["reusable cup", "ceramic mug", "glass cup"],
+    "synonyms": ["paper cup", "disposable cup with plastic lining"],
+    "ecoFriendly": false,
+    "description": "Paper cups are often lined with a thin layer of plastic to prevent leaks, making them difficult to recycle and not fully biodegradable. They contribute to both paper and plastic waste."
+  },
+
+  "pvc": {
+    "co2": 0.3,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 15,
+    "alternatives": ["HDPE", "LDPE", "bioplastics", "metal pipes", "ceramic pipes"],
+    "synonyms": ["pvc", "polyvinyl chloride", "pvc pipe", "pvc plastic"],
+    "ecoFriendly": false,
+    "description": "PVC (polyvinyl chloride) is a widely used plastic in pipes, cables, and packaging. It is non-biodegradable and releases toxic chemicals like dioxins when burned."
+  },
+  "hdpe": {
+    "co2": 0.18,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 8,
+    "alternatives": ["bioplastics", "glass", "metal"],
+    "synonyms": ["hdpe", "high density polyethylene"],
+    "ecoFriendly": false,
+    "description": "HDPE is a common plastic used in bottles and containers. It is recyclable but still contributes to plastic pollution if not disposed of properly."
+  },
+  "ldpe": {
+    "co2": 0.16,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 7,
+    "alternatives": ["bioplastics", "paper", "cloth"],
+    "synonyms": ["ldpe", "low density polyethylene"],
+    "ecoFriendly": false,
+    "description": "LDPE is used in plastic bags and films. It is less recyclable and often ends up in landfills or as litter."
+  },
+  "bioplastics": {
+    "co2": 0.04,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 1.5,
+    "alternatives": ["paper", "cloth", "glass"],
+    "ecoFriendly": true,
+    "description": "Bioplastics are made from renewable sources and are often biodegradable, making them a better alternative to conventional plastics."
+  },
+
+  "wet wipes": {
+    "co2": 0.02,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 1,
+    "alternatives": ["cloth wipe", "biodegradable wipe"],
+    "ecoFriendly": false,
+    "description": "Wet wipes contain plastic fibers, are single-use, and often clog drains and pollute water bodies."
+  },
+  "disposable mask": {
+    "co2": 0.03,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 1.5,
+    "alternatives": ["cloth mask", "reusable mask"],
+    "ecoFriendly": false,
+    "description": "Disposable masks are made of synthetic fibers and contribute to pandemic-related waste."
+  },
+  "plastic toy": {
+    "co2": 0.08,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 4,
+    "alternatives": ["wooden toy", "recycled plastic toy"],
+    "ecoFriendly": false,
+    "description": "Plastic toys are often discarded and contribute to landfill waste."
+  },
+  "balloon": {
+    "co2": 0.01,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 0.5,
+    "alternatives": ["paper decoration", "fabric bunting"],
+    "ecoFriendly": false,
+    "description": "Balloons are not biodegradable and can harm wildlife if released."
+  },
+  "glitter": {
+    "co2": 0.001,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 0.05,
+    "alternatives": ["biodegradable glitter"],
+    "ecoFriendly": false,
+    "description": "Conventional glitter is microplastic and pollutes water bodies."
+  },
+  "chewing gum": {
+    "co2": 0.005,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 0.2,
+    "alternatives": ["biodegradable gum"],
+    "ecoFriendly": false,
+    "description": "Most chewing gum contains plastic polymers and does not biodegrade."
+  },
+  "cigarette butt": {
+    "co2": 0.01,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 0.5,
+    "alternatives": ["smoke-free alternative"],
+    "ecoFriendly": false,
+    "description": "Cigarette butts contain plastic and toxic chemicals, polluting land and water."
+  },
+  "styrofoam cup": {
+    "co2": 0.09,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 4.5,
+    "alternatives": ["paper cup", "reusable cup"],
+    "ecoFriendly": false,
+    "description": "Styrofoam cups are not recyclable and persist in the environment for centuries."
+  },
+  "takeaway container": {
+    "co2": 0.07,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 3.5,
+    "alternatives": ["reusable container", "compostable container"],
+    "ecoFriendly": false,
+    "description": "Plastic takeaway containers are single-use and contribute to urban waste."
+  },
+  "microfiber cloth": {
+    "co2": 0.01,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 0.5,
+    "alternatives": ["cotton cloth"],
+    "ecoFriendly": false,
+    "description": "Microfiber cloths shed microplastics during washing, polluting water."
+  },
+  "disposable battery": {
+    "co2": 0.02,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 1,
+    "alternatives": ["rechargeable battery"],
+    "ecoFriendly": false,
+    "description": "Disposable batteries contain toxic metals and are hazardous if not recycled."
+  },
+  "LED bulb": {
+    "co2": 0.002,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.02,
+    "alternatives": ["CFL bulb", "incandescent bulb"],
+    "ecoFriendly": true,
+    "description": "LED bulbs are energy-efficient and last longer, reducing waste."
+  },
+  "solar panel": {
+    "co2": 0.001,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.01,
+    "alternatives": [],
+    "ecoFriendly": true,
+    "description": "Solar panels generate clean energy and reduce reliance on fossil fuels."
+  },
+  "compost bin": {
+    "co2": 0.001,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.01,
+    "alternatives": [],
+    "ecoFriendly": true,
+    "description": "Compost bins help recycle organic waste and enrich soil."
+  },
+  "e-waste": {
+    "co2": 0.2,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 10,
+    "alternatives": ["recycling center", "donation"],
+    "ecoFriendly": false,
+    "description": "E-waste like old phones contains hazardous materials and should be recycled properly."
+  },
+  "fast fashion t-shirt": {
+    "co2": 0.05,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 2.5,
+    "alternatives": ["organic cotton t-shirt", "second-hand t-shirt"],
+    "ecoFriendly": false,
+    "description": "Fast fashion t-shirts are often made from synthetic fibers and contribute to textile waste."
+  },
+  "leather bag": {
+    "co2": 0.08,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 4,
+    "alternatives": ["vegan leather bag", "cloth bag"],
+    "ecoFriendly": false,
+    "description": "Leather bags require animal products and chemicals for tanning, impacting the environment."
+  },
+  "wool sweater": {
+    "co2": 0.03,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 1.5,
+    "alternatives": ["organic cotton sweater"],
+    "ecoFriendly": true,
+    "description": "Wool sweaters are biodegradable and last long, but wool production has a carbon footprint."
+  },
+  "synthetic shoes": {
+    "co2": 0.06,
+    "nonBiodegradable": true,
+    "annualPollutionKg": 3,
+    "alternatives": ["leather shoes", "recycled material shoes"],
+    "ecoFriendly": false,
+    "description": "Synthetic shoes are made from plastics and contribute to landfill waste."
+  },
+  "biodegradable bag": {
+    "co2": 0.01,
+    "nonBiodegradable": false,
+    "annualPollutionKg": 0.1,
+    "alternatives": ["cloth bag", "paper bag"],
+    "ecoFriendly": true,
+    "description": "Biodegradable bags break down naturally and are a better alternative to plastic bags."
+  },
+  "polluting_gases": {
+    "co2": {
+      "name": "Carbon Dioxide (CO2)",
+      "description": "The primary greenhouse gas emitted by human activities, mainly from burning fossil fuels. Major contributor to global warming."
+    },
+    "ch4": {
+      "name": "Methane (CH4)",
+      "description": "Emitted during the production and transport of coal, oil, and natural gas, as well as from livestock and other agricultural practices. Potent greenhouse gas."
+    },
+    "n2o": {
+      "name": "Nitrous Oxide (N2O)",
+      "description": "Released from agricultural and industrial activities, as well as combustion of fossil fuels and solid waste. Strong greenhouse gas."
+    },
+    "so2": {
+      "name": "Sulfur Dioxide (SO2)",
+      "description": "Produced by burning fossil fuels (coal and oil) and by smelting mineral ores. Causes acid rain and respiratory problems."
+    },
+    "no2": {
+      "name": "Nitrogen Dioxide (NO2)",
+      "description": "Emitted from vehicles, power plants, and off-road equipment. Contributes to smog and respiratory issues."
+    },
+    "o3": {
+      "name": "Ozone (O3)",
+      "description": "A secondary pollutant formed by chemical reactions between NOx and VOCs in sunlight. Harmful at ground level, causes respiratory problems."
+    },
+    "pm25": {
+      "name": "Particulate Matter (PM2.5)",
+      "description": "Tiny particles in the air that reduce visibility and cause health problems when inhaled. Come from construction sites, unpaved roads, fields, smokestacks, or fires."
+    }
+  }
+} 
