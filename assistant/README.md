@@ -212,32 +212,6 @@ Your React app will now communicate with the backend for ChatGPT requests.
 3. Create a new API key
 4. Copy the key to your `.env` file as `OPENAI_API_KEY`
 
-## 🌐 Deployment
-
-
-### IBM Cloud Deployment
-
-1. **Build the app**
-   ```bash
-   npm run build
-   ```
-
-2. **Deploy to IBM Cloud Object Storage**
-   - Upload the `build/` folder contents
-   - Configure static website hosting
-   - Set up custom domain (optional)
-
-3. **Environment Variables in Production**
-   - Add your Gemini API key to your hosting platform's environment variables
-   - Ensure the key is accessible as `REACT_APP_GEMINI_API_KEY`
-   - For ChatGPT, deploy your backend server and set `OPENAI_API_KEY` securely
-
-### Other Deployment Options
-
-- **Netlify**: Drag and drop the `build/` folder
-- **Vercel**: Connect your GitHub repository
-- **GitHub Pages**: Use the `gh-pages` package
-- **AWS S3**: Upload to S3 with static website hosting
 
 ## 🎨 Customization
 
