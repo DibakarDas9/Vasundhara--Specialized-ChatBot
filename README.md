@@ -26,7 +26,7 @@ A modern, innovative React.js website focused on SDG 13 – Climate Action. This
 
 1. **Clone or download the project**
    ```bash
-   cd climate-action-app
+   cd assistant
    ```
 
 2. **Install dependencies**
