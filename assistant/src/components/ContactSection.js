@@ -45,7 +45,7 @@ const animatedBorderStyle = `
 const founders = [
   {
     name: "Dibakar Das",
-    image: "https://media.licdn.com/dms/image/v2/D5603AQGsAhM2ArdR4A/profile-displayphoto-shrink_400_400/B56ZWP47kuGUAg-/0/1741875821578?e=1756944000&v=beta&t=val-VJAapyoFF4F9DVfWeG2mJT9J7ijkT5aeNnD1AXY",
+    image: "https://postimg.cc/kBj7vPS3",
     email: "dibakardas612@gmail.com",
     linkedin: "https://www.linkedin.com/in/dibakar-das-453653248/",
     github: "https://github.com/DibakarDas9",
@@ -53,7 +53,7 @@ const founders = [
   },
   {
         name: "Dipanjan Samanta",
-        image: "https://media.licdn.com/dms/image/v2/D5635AQFc3dDOODLOFw/profile-framedphoto-shrink_800_800/profile-framedphoto-shrink_800_800/0/1732287409229?e=1755169200&v=beta&t=i5Gp19KITXk5yuhyIOWUhynvIcm06_ncHDP98sbtCt4",
+        image: "https://postimg.cc/3dgH3c5T",
         imageAlt: "https://media.licdn.com/dms/image/v2/D5635AQFc3dDOODLOFw/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1732287409229?e=1754661600&v=beta&t=t6UbPo73_rFYNoGb15htkrkYC8WcJrTh11M_lqdau68",
     email: "dipanjanbdn03@gmail.com",
     linkedin: "https://www.linkedin.com/in/dipanjan-samanta-856411239/",
