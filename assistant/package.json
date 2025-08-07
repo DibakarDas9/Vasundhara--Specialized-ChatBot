@@ -20,6 +20,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "backend": "node server.js",
+    "backend:dev": "nodemon server.js",
+    "dev": "concurrently \"npm run backend:dev\" \"npm start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -44,6 +47,8 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
+    "concurrently": "^9.2.0",
+    "nodemon": "^3.1.10",
     "postcss": "^8.4.24"
   }
 }

@@ -88,7 +88,7 @@ climate-action-app/
 ├── env.example                    # Environment variables example
 ├── .gitignore                     # Git ignore rules
 ├── README.md                      # This file
-├── DEPLOYMENT.md                  # IBM Cloud deployment guide
+├── DEPLOYMENT.md                  # Deployment guide (remove or update as needed)
 └── setup.bat                      # Windows setup script
 ```
 
@@ -284,9 +284,5 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 📞 Support
 
 If you have any questions or need help with:
-- **Setup**: Check the installation steps above
-- **AI Integration**: See the environment variables section
-- **Deployment**: Refer to the deployment guide
-- **Customization**: Check the customization section
 
 **🌱 Together, we can make a difference for our planet! Every small action counts towards a sustainable future.** 
