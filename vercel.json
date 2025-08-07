@@ -1,7 +1,28 @@
 {
   "version": 2,
+  "buildCommand": "cd assistant && npm install && npm run build",
+  "outputDirectory": "assistant/build",
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/index.js" }
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.js"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "/assistant/build/static/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/assistant/build/favicon.ico"
+    },
+    {
+      "src": "/manifest.json",
+      "dest": "/assistant/build/manifest.json"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/assistant/build/index.html"
+    }
   ],
   "functions": {
     "api/index.js": {

@@ -10,7 +10,8 @@
   },
   "scripts": {
     "dev": "vercel dev",
-    "build": "vercel build",
-    "start": "vercel dev"
+    "build": "cd assistant && npm install && npm run build",
+    "start": "vercel dev",
+    "vercel-build": "cd assistant && npm install && npm run build"
   }
 }
