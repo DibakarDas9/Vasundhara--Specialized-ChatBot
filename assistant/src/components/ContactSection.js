@@ -45,7 +45,7 @@ const animatedBorderStyle = `
 const founders = [
   {
     name: "Dibakar Das",
-    image: "https://postimg.cc/kBj7vPS3",
+    image: "https://i.postimg.cc/3xhW7KJR/Whats-App-Image-2025-03-15-at-12-47-02-780be8b3.jpg",
     email: "dibakardas612@gmail.com",
     linkedin: "https://www.linkedin.com/in/dibakar-das-453653248/",
     github: "https://github.com/DibakarDas9",
