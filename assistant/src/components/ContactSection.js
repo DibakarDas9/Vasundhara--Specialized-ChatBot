@@ -53,7 +53,7 @@ const founders = [
   },
   {
         name: "Dipanjan Samanta",
-        image: "https://postimg.cc/3dgH3c5T",
+        image: "https://i.postimg.cc/L8jKxRL9/IMG-9495-1.jpg",
         imageAlt: "https://media.licdn.com/dms/image/v2/D5635AQFc3dDOODLOFw/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1732287409229?e=1754661600&v=beta&t=t6UbPo73_rFYNoGb15htkrkYC8WcJrTh11M_lqdau68",
     email: "dipanjanbdn03@gmail.com",
     linkedin: "https://www.linkedin.com/in/dipanjan-samanta-856411239/",
