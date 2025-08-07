@@ -89,6 +89,8 @@ const founders = [
     email: "amitghosh96104@gmail.com",
     linkedin: "https://www.linkedin.com/in/amit-ghosh-56643a2a4",
     github: "https://github.com/amit12020",
+    cv: "https://drive.google.com/file/d/13ddLSerOZuoSzustYIT_AgzuZKJdTITh/view?usp=drivesdk"
+
     
   }
 ];

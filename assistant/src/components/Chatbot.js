@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import impactData from '../data/impactData.json';
 
 // Enhanced mock responses for demo - replace with OpenAI API calls for production
 const mockResponses = {
@@ -117,8 +118,89 @@ const mockResponses = {
   "zero": "Zero waste living aims to eliminate trash through mindful consumption. Start with the 5 R's: Refuse, Reduce, Reuse, Recycle, and Rot. Every step towards zero waste helps the planet!"
 };
 
-// Google Search fallback: async function
+// Comparison keywords to detect comparison requests
+const COMPARISON_KEYWORDS = [
+  'compare', 'comparison', 'difference', 'vs', 'versus', 'better', 'worse',
+  'which is', 'what is the difference', 'how does', 'environmental impact',
+  'carbon footprint', 'eco-friendly', 'sustainable', 'green'
+];
+
+// Function to detect if user is asking for a comparison
+const isComparisonRequest = (text) => {
+  const lowerText = text.toLowerCase();
+  return COMPARISON_KEYWORDS.some(keyword => lowerText.includes(keyword));
+};
+
+// Function to find relevant data for comparison
+const findComparisonData = (text) => {
+  const lowerText = text.toLowerCase();
+  const foundItems = [];
+  
+  // Search through impact data for items mentioned in the text
+  Object.keys(impactData).forEach(item => {
+    if (lowerText.includes(item.toLowerCase())) {
+      foundItems.push({
+        name: item,
+        data: impactData[item]
+      });
+    }
+  });
+  
+  return foundItems;
+};
+
+// Function to create comparison response
+const createComparisonResponse = (items) => {
+  if (items.length < 2) {
+    return null; // Need at least 2 items to compare
+  }
+  
+  let response = "🌱 **Environmental Impact Comparison**\n\n";
+  
+  items.forEach((item, index) => {
+    const data = item.data;
+    response += `**${item.name.toUpperCase()}**\n`;
+    response += `• Carbon Footprint: ${data.co2} kg CO2\n`;
+    response += `• Annual Pollution: ${data.annualPollutionKg} kg\n`;
+    response += `• Eco-friendly: ${data.ecoFriendly ? '✅ Yes' : '❌ No'}\n`;
+    response += `• Biodegradable: ${data.nonBiodegradable ? '❌ No' : '✅ Yes'}\n`;
+    response += `• Description: ${data.description}\n`;
+    
+    if (data.alternatives && data.alternatives.length > 0) {
+      response += `• Better Alternatives: ${data.alternatives.join(', ')}\n`;
+    }
+    response += '\n';
+  });
+  
+  // Add comparison summary
+  const ecoFriendlyItems = items.filter(item => item.data.ecoFriendly);
+  const bestOption = items.reduce((best, current) => 
+    current.data.co2 < best.data.co2 ? current : best
+  );
+  
+  response += `**💡 Recommendation:** ${bestOption.name} has the lowest carbon footprint (${bestOption.data.co2} kg CO2).\n`;
+  response += `**🌿 Eco-friendly options:** ${ecoFriendlyItems.map(item => item.name).join(', ')}\n`;
+  
+  return response;
+};
+
 const getBotResponse = async (message) => {
+  // Check if this is a comparison request
+  const isComparison = isComparisonRequest(message);
+  let comparisonData = null;
+  
+  if (isComparison) {
+    comparisonData = findComparisonData(message);
+  }
+
+  // If we have comparison data, create a detailed comparison response
+  if (comparisonData && comparisonData.length >= 2) {
+    const comparisonResponse = createComparisonResponse(comparisonData);
+    if (comparisonResponse) {
+      return comparisonResponse;
+    }
+  }
+
   const lowerMessage = message.toLowerCase();
 
   // Improved matching: only match if keyword is a whole word or exact match
@@ -168,7 +250,7 @@ const Chatbot = () => {
     { 
       id: 1, 
       from: "bot", 
-      text: "Hi! I'm Vasundhara, your climate action bot. I'm here to help you understand environmental impact, find sustainable alternatives, and make eco-friendly choices. What would you like to know about today? 🌱", 
+      text: "Hi! I'm Vasundhara, your climate action bot. I'm here to help you understand environmental impact, find sustainable alternatives, and make eco-friendly choices. You can ask me to compare products, analyze environmental impact, or get sustainability tips! 🌱", 
       timestamp: new Date(),
       type: "welcome"
     }
@@ -232,14 +314,14 @@ const Chatbot = () => {
   };
 
   const quickQuestions = [
-    "How can I reduce my carbon footprint?",
-    "What are the best alternatives to plastic?",
-    "How does food choice affect climate change?",
-    "What renewable energy options are available?",
-    "How can I make my home more sustainable?",
-    "What's the impact of fast fashion?",
-    "How can I reduce food waste?",
-    "What are the benefits of electric vehicles?"
+    "Compare plastic bags vs cloth bags",
+    "What's the difference between plastic and metal straws?",
+    "Compare paper vs plastic bags",
+    "Which is better: plastic or glass bottles?",
+    "How do coffee cups compare to reusable cups?",
+    "Compare bamboo vs plastic cutlery",
+    "What's the environmental impact of fast fashion?",
+    "Compare electric vs gas vehicles"
   ];
 
   const handleQuickQuestion = (question) => {
@@ -251,7 +333,7 @@ const Chatbot = () => {
       { 
         id: 1, 
         from: "bot", 
-        text: "Hi! I'm Vasundhara, your climate action bot. I'm here to help you understand environmental impact, find sustainable alternatives, and make eco-friendly choices. What would you like to know about today? 🌱", 
+        text: "Hi! I'm Vasundhara, your climate action bot. I'm here to help you understand environmental impact, find sustainable alternatives, and make eco-friendly choices. You can ask me to compare products, analyze environmental impact, or get sustainability tips! 🌱", 
         timestamp: new Date(),
         type: "welcome"
       }

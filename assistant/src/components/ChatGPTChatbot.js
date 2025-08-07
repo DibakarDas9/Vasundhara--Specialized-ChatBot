@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
-
 import axios from 'axios';
+import impactData from '../data/impactData.json';
+
 const BACKEND_API_URL = '/api/chatgpt';
 
-// Enhanced climate-focused system prompt for ChatGPT
+// Enhanced climate-focused system prompt for ChatGPT with comparison capabilities
 const CLIMATE_SYSTEM_PROMPT = `You are an expert climate action assistant powered by OpenAI's ChatGPT. Your role is to help users understand environmental impact, sustainability, and climate change.
 
 Key areas of expertise:
@@ -15,6 +16,14 @@ Key areas of expertise:
 - Waste reduction and circular economy
 - Biodiversity and ecosystem protection
 - Environmental policy and advocacy
+- Product comparisons and alternatives
+
+When users ask for comparisons (using words like "compare", "difference", "vs", "versus", "better", "worse"), provide detailed comparisons including:
+- Carbon footprint differences
+- Environmental impact analysis
+- Cost-benefit analysis
+- Practical recommendations
+- Specific alternatives
 
 Always provide:
 - Accurate, science-based information
@@ -25,12 +34,78 @@ Always provide:
 
 Keep responses concise but informative, and always encourage sustainable choices.`;
 
+// Comparison keywords to detect comparison requests
+const COMPARISON_KEYWORDS = [
+  'compare', 'comparison', 'difference', 'vs', 'versus', 'better', 'worse',
+  'which is', 'what is the difference', 'how does', 'environmental impact',
+  'carbon footprint', 'eco-friendly', 'sustainable', 'green'
+];
+
+// Function to detect if user is asking for a comparison
+const isComparisonRequest = (text) => {
+  const lowerText = text.toLowerCase();
+  return COMPARISON_KEYWORDS.some(keyword => lowerText.includes(keyword));
+};
+
+// Function to find relevant data for comparison
+const findComparisonData = (text) => {
+  const lowerText = text.toLowerCase();
+  const foundItems = [];
+  
+  // Search through impact data for items mentioned in the text
+  Object.keys(impactData).forEach(item => {
+    if (lowerText.includes(item.toLowerCase())) {
+      foundItems.push({
+        name: item,
+        data: impactData[item]
+      });
+    }
+  });
+  
+  return foundItems;
+};
+
+// Function to create comparison response
+const createComparisonResponse = (items) => {
+  if (items.length < 2) {
+    return null; // Need at least 2 items to compare
+  }
+  
+  let response = "🌱 **Environmental Impact Comparison**\n\n";
+  
+  items.forEach((item, index) => {
+    const data = item.data;
+    response += `**${item.name.toUpperCase()}**\n`;
+    response += `• Carbon Footprint: ${data.co2} kg CO2\n`;
+    response += `• Annual Pollution: ${data.annualPollutionKg} kg\n`;
+    response += `• Eco-friendly: ${data.ecoFriendly ? '✅ Yes' : '❌ No'}\n`;
+    response += `• Biodegradable: ${data.nonBiodegradable ? '❌ No' : '✅ Yes'}\n`;
+    response += `• Description: ${data.description}\n`;
+    
+    if (data.alternatives && data.alternatives.length > 0) {
+      response += `• Better Alternatives: ${data.alternatives.join(', ')}\n`;
+    }
+    response += '\n';
+  });
+  
+  // Add comparison summary
+  const ecoFriendlyItems = items.filter(item => item.data.ecoFriendly);
+  const bestOption = items.reduce((best, current) => 
+    current.data.co2 < best.data.co2 ? current : best
+  );
+  
+  response += `**💡 Recommendation:** ${bestOption.name} has the lowest carbon footprint (${bestOption.data.co2} kg CO2).\n`;
+  response += `**🌿 Eco-friendly options:** ${ecoFriendlyItems.map(item => item.name).join(', ')}\n`;
+  
+  return response;
+};
+
 const ChatGPTChatbot = () => {
   const [messages, setMessages] = useState([
     { 
       id: 1, 
       from: "bot", 
-      text: "Hello! I'm ChatGPT, your AI climate action assistant. I'm here to help you understand environmental impact, find sustainable alternatives, and take meaningful climate action. What would you like to know about today? 🌱", 
+      text: "Hello! I'm ChatGPT, your AI climate action assistant. I'm here to help you understand environmental impact, find sustainable alternatives, and take meaningful climate action. You can ask me to compare products, analyze environmental impact, or get sustainability tips! 🌱", 
       timestamp: new Date(),
       type: "welcome"
     }
@@ -50,7 +125,6 @@ const ChatGPTChatbot = () => {
   const sendMessage = async () => {
     if (!input.trim() || isTyping) return;
 
-
     const userMessage = {
       id: messages.length + 1,
       from: "user",
@@ -64,12 +138,32 @@ const ChatGPTChatbot = () => {
     setIsTyping(true);
 
     try {
+      // Check if this is a comparison request
+      const isComparison = isComparisonRequest(input.trim());
+      let comparisonData = null;
+      
+      if (isComparison) {
+        comparisonData = findComparisonData(input.trim());
+      }
+
       // Build conversation context for ChatGPT
       const recentMessages = messages.slice(-8); // Keep last 8 messages for context
       const contextMessages = recentMessages.map(msg => ({
         role: msg.from === "user" ? "user" : "assistant",
         content: msg.text
       }));
+
+      let systemPrompt = CLIMATE_SYSTEM_PROMPT;
+      
+      // If we have comparison data, enhance the system prompt
+      if (comparisonData && comparisonData.length >= 2) {
+        systemPrompt += `\n\nIMPORTANT: The user is asking for a comparison. Use the following data to provide a detailed comparison:
+        ${comparisonData.map(item => 
+          `${item.name}: CO2=${item.data.co2}kg, Pollution=${item.data.annualPollutionKg}kg, Eco-friendly=${item.data.ecoFriendly}, Description=${item.data.description}`
+        ).join('\n')}
+        
+        Provide a structured comparison with clear recommendations.`;
+      }
 
       const response = await axios.post(
         BACKEND_API_URL,
@@ -78,7 +172,7 @@ const ChatGPTChatbot = () => {
             ...contextMessages,
             { role: "user", content: input.trim() }
           ],
-          systemPrompt: CLIMATE_SYSTEM_PROMPT
+          systemPrompt: systemPrompt
         },
         {
           headers: {
@@ -88,7 +182,16 @@ const ChatGPTChatbot = () => {
         }
       );
 
-      const reply = response.data.reply || "I'm sorry, I couldn't process that request. Please try again.";
+      let reply = response.data.reply || "I'm sorry, I couldn't process that request. Please try again.";
+      
+      // If we have comparison data and the AI response is generic, enhance it
+      if (comparisonData && comparisonData.length >= 2) {
+        const comparisonResponse = createComparisonResponse(comparisonData);
+        if (comparisonResponse) {
+          reply = comparisonResponse + "\n\n" + reply;
+        }
+      }
+
       const botMessage = {
         id: messages.length + 2,
         from: "bot",
@@ -123,14 +226,14 @@ const ChatGPTChatbot = () => {
   };
 
   const quickQuestions = [
-    "How can I reduce my carbon footprint?",
-    "What are the best alternatives to plastic?",
-    "How does food choice affect climate change?",
-    "What renewable energy options are available?",
-    "How can I make my home more sustainable?",
-    "What's the impact of fast fashion?",
-    "How can I reduce food waste?",
-    "What are the benefits of electric vehicles?"
+    "Compare plastic bags vs cloth bags",
+    "What's the difference between plastic and metal straws?",
+    "Compare paper vs plastic bags",
+    "Which is better: plastic or glass bottles?",
+    "How do coffee cups compare to reusable cups?",
+    "Compare bamboo vs plastic cutlery",
+    "What's the environmental impact of fast fashion?",
+    "Compare electric vs gas vehicles"
   ];
 
   const handleQuickQuestion = (question) => {
@@ -142,14 +245,12 @@ const ChatGPTChatbot = () => {
       { 
         id: 1, 
         from: "bot", 
-        text: "Hello! I'm ChatGPT, your AI climate action assistant. I'm here to help you understand environmental impact, find sustainable alternatives, and take meaningful climate action. What would you like to know about today? 🌱", 
+        text: "Hello! I'm ChatGPT, your AI climate action assistant. I'm here to help you understand environmental impact, find sustainable alternatives, and take meaningful climate action. You can ask me to compare products, analyze environmental impact, or get sustainability tips! 🌱", 
         timestamp: new Date(),
         type: "welcome"
       }
     ]);
   };
-
-  // ...existing code...
 
   return (
     <div className="glass-card rounded-3xl p-6 lg:p-8 max-w-5xl mx-auto">
@@ -160,7 +261,7 @@ const ChatGPTChatbot = () => {
             🤖
           </div>
           <div>
-            <h3 className="text-2xl lg:text-3xl font-bold gradient-text mb-1">ChatGPT AI Assistant</h3>
+            <h3 className="text-2xl lg:text-3xl font-bold gradient-text mb-1">Climate AI Assistant</h3>
             <div className="flex items-center space-x-2">
               <div className={`w-2 h-2 rounded-full bg-green-500`}></div>
               <p className="text-sm text-gray-600 dark:text-gray-300">
@@ -185,7 +286,7 @@ const ChatGPTChatbot = () => {
 
       {/* Quick Questions */}
       <div className="mb-6">
-        <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Quick questions:</p>
+        <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Quick comparisons & questions:</p>
         <div className="flex flex-wrap gap-2">
           {quickQuestions.map((question, index) => (
             <button
@@ -223,7 +324,7 @@ const ChatGPTChatbot = () => {
                 {message.from === "bot" && (
                   <div className="flex items-center space-x-1">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-xs">ChatGPT</span>
+                    <span className="text-xs">Climate AI</span>
                   </div>
                 )}
               </div>
@@ -239,7 +340,7 @@ const ChatGPTChatbot = () => {
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                 </div>
-                <span className="text-sm text-gray-600 dark:text-gray-400">ChatGPT is thinking...</span>
+                <span className="text-sm text-gray-600 dark:text-gray-400">Climate AI is analyzing...</span>
               </div>
             </div>
           </div>
@@ -252,7 +353,7 @@ const ChatGPTChatbot = () => {
         <div className="flex-1 relative">
           <textarea
             className="w-full px-4 lg:px-6 py-3 lg:py-4 text-base lg:text-lg border-2 border-white/20 dark:border-gray-600/20 rounded-2xl focus:border-green-500 focus:outline-none resize-none bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-200"
-            placeholder="Ask me about climate action, environmental impact, or sustainability..."
+            placeholder="Compare products, ask about environmental impact, or get sustainability tips..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
@@ -277,7 +378,7 @@ const ChatGPTChatbot = () => {
       {/* Chat Stats */}
       <div className="mt-4 flex justify-between items-center text-xs text-gray-500 dark:text-gray-400">
         <span>{messages.length - 1} messages exchanged</span>
-        <span>Powered by OpenAI ChatGPT</span>
+        <span>Powered by OpenAI ChatGPT + Climate Data</span>
       </div>
     </div>
   );
