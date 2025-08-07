@@ -37,8 +37,6 @@ const ChatGPTChatbot = () => {
   ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [isConnected, setIsConnected] = useState(true);
-  const [conversationHistory, setConversationHistory] = useState([]);
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -99,7 +97,6 @@ const ChatGPTChatbot = () => {
         type: "response"
       };
       setMessages(prev => [...prev, botMessage]);
-      setConversationHistory(prev => [...prev, { user: input.trim(), bot: reply }]);
     } catch (error) {
       console.error('OpenAI API Error:', error);
       const errorMessage = {
@@ -150,7 +147,6 @@ const ChatGPTChatbot = () => {
         type: "welcome"
       }
     ]);
-    setConversationHistory([]);
   };
 
   // ...existing code...
@@ -166,9 +162,9 @@ const ChatGPTChatbot = () => {
           <div>
             <h3 className="text-2xl lg:text-3xl font-bold gradient-text mb-1">ChatGPT AI Assistant</h3>
             <div className="flex items-center space-x-2">
-              <div className={`w-2 h-2 rounded-full ${isConnected ? 'bg-green-500' : 'bg-red-500'}`}></div>
+              <div className={`w-2 h-2 rounded-full bg-green-500`}></div>
               <p className="text-sm text-gray-600 dark:text-gray-300">
-                {isConnected ? 'Connected' : 'Disconnected'} • Powered by OpenAI's ChatGPT
+                Connected • Powered by OpenAI's ChatGPT
               </p>
             </div>
           </div>

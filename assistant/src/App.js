@@ -8,7 +8,6 @@ import Chatbot from "./components/Chatbot";
 import GeminiChatbot from "./components/GeminiChatbot";
 import ChatGPTChatbot from "./components/ChatGPTChatbot";
 import ChatbotSelector from "./components/ChatbotSelector";
-import DarkModeToggle from "./components/DarkModeToggle";
 import Navbar from "./components/Navbar";
 import AboutSection from "./components/AboutSection";
 import ContactSection from "./components/ContactSection";

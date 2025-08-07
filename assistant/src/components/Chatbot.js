@@ -175,7 +175,6 @@ const Chatbot = () => {
   ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [conversationHistory, setConversationHistory] = useState([]);
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -217,7 +216,6 @@ const Chatbot = () => {
         type: "response"
       };
       setMessages(prev => [...prev, botMessage]);
-      setConversationHistory(prev => [...prev, { user: input.trim(), bot: botResponse }]);
       setIsTyping(false);
     }, 1000);
   };
@@ -258,7 +256,6 @@ const Chatbot = () => {
         type: "welcome"
       }
     ]);
-    setConversationHistory([]);
   };
 
   return (

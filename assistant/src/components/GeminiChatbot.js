@@ -39,7 +39,6 @@ const GeminiChatbot = () => {
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [isConnected, setIsConnected] = useState(true);
-  const [conversationHistory, setConversationHistory] = useState([]);
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -136,7 +135,6 @@ const GeminiChatbot = () => {
       };
       
       setMessages(prev => [...prev, botMessage]);
-      setConversationHistory(prev => [...prev, { user: input.trim(), bot: reply }]);
     } catch (error) {
       console.error('Gemini API Error:', error);
       const errorMessage = {
@@ -187,7 +185,6 @@ const GeminiChatbot = () => {
         type: "welcome"
       }
     ]);
-    setConversationHistory([]);
   };
 
   if (!GEMINI_API_KEY) {

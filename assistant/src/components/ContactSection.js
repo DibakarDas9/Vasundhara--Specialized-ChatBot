@@ -54,7 +54,7 @@ const founders = [
   {
         name: "Dipanjan Samanta",
         image: "https://media.licdn.com/dms/image/v2/D4D03AQGvTtz9OeLKHQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1726763010172?e=1756944000&v=beta&t=koQhSGUxFa3WVMfJ_nwJIGokt_STnP9COpVqZTfX0qA",
-        image: "https://media.licdn.com/dms/image/v2/D5635AQFc3dDOODLOFw/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1732287409229?e=1754661600&v=beta&t=t6UbPo73_rFYNoGb15htkrkYC8WcJrTh11M_lqdau68",
+        imageAlt: "https://media.licdn.com/dms/image/v2/D5635AQFc3dDOODLOFw/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1732287409229?e=1754661600&v=beta&t=t6UbPo73_rFYNoGb15htkrkYC8WcJrTh11M_lqdau68",
     email: "dipanjanbdn03@gmail.com",
     linkedin: "https://www.linkedin.com/in/dipanjan-samanta-856411239/",
     github: "https://github.com/DipanjanSamanta13",
