@@ -62,6 +62,20 @@ const findComparisonData = (text) => {
     }
   });
   
+  // Search through nested categories
+  for (const category in impactData) {
+    if (typeof impactData[category] === 'object') {
+      Object.keys(impactData[category]).forEach(item => {
+        if (lowerText.includes(item.toLowerCase())) {
+          foundItems.push({
+            name: item,
+            data: impactData[category][item]
+          });
+        }
+      });
+    }
+  }
+  
   return foundItems;
 };
 

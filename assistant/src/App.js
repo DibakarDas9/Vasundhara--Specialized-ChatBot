@@ -33,36 +33,84 @@ function App() {
   }, []);
 
   const handleSearch = (item) => {
-    // Try exact match first
+    // Try exact match first (top-level items)
     if (impactData[item]) {
       setSelectedItem(item);
       setItemData(impactData[item]);
       return;
     }
-    // Try synonym match
+    
+    // Try exact match in nested categories
+    for (const category in impactData) {
+      if (typeof impactData[category] === 'object' && impactData[category][item]) {
+        setSelectedItem(item);
+        setItemData(impactData[category][item]);
+        return;
+      }
+    }
+    
+    // Try synonym match (top-level items)
     const keys = Object.keys(impactData);
     let found = null;
     for (const key of keys) {
-      const synonyms = impactData[key].synonyms || [];
-      if (synonyms.map(s => s.toLowerCase()).includes(item)) {
-        found = key;
-        break;
+      if (impactData[key] && typeof impactData[key] === 'object' && impactData[key].synonyms) {
+        const synonyms = impactData[key].synonyms || [];
+        if (synonyms.map(s => s.toLowerCase()).includes(item)) {
+          found = key;
+          break;
+        }
       }
     }
+    
+    // Try synonym match in nested categories
+    if (!found) {
+      for (const category in impactData) {
+        if (typeof impactData[category] === 'object') {
+          for (const key in impactData[category]) {
+            if (impactData[category][key] && typeof impactData[category][key] === 'object' && impactData[category][key].synonyms) {
+              const synonyms = impactData[category][key].synonyms || [];
+              if (synonyms.map(s => s.toLowerCase()).includes(item)) {
+                found = key;
+                setSelectedItem(key);
+                setItemData(impactData[category][key]);
+                return;
+              }
+            }
+          }
+        }
+      }
+    }
+    
     if (found) {
       setSelectedItem(found);
       setItemData(impactData[found]);
       return;
     }
-    // Try partial match (substring)
+    
+    // Try partial match (substring) in top-level items
     const closest = keys.find(key => key.includes(item));
     if (closest) {
       setSelectedItem(closest);
       setItemData(impactData[closest]);
-    } else {
-      setSelectedItem(item);
-      setItemData(null);
+      return;
     }
+    
+    // Try partial match in nested categories
+    for (const category in impactData) {
+      if (typeof impactData[category] === 'object') {
+        const categoryKeys = Object.keys(impactData[category]);
+        const closestInCategory = categoryKeys.find(key => key.includes(item));
+        if (closestInCategory) {
+          setSelectedItem(closestInCategory);
+          setItemData(impactData[category][closestInCategory]);
+          return;
+        }
+      }
+    }
+    
+    // If nothing found
+    setSelectedItem(item);
+    setItemData(null);
   };
 
   if (loading) {
@@ -105,7 +153,7 @@ function App() {
             {/* Floating Stats */}
             <div className="flex justify-center space-x-8 mt-12">
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">10+</div>
+                <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">100+</div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">Items Analyzed</div>
               </div>
               <div className="text-center">
@@ -145,7 +193,7 @@ function App() {
                   <div>
                     <h3 className="font-semibold text-red-800 dark:text-red-200">Item not found!</h3>
                     <p className="text-red-700 dark:text-red-300">
-                      Try searching for: plastic bag, cloth bag, plastic bottle, reusable bottle, paper bag, straw, metal straw, coffee cup, reusable coffee cup, bamboo, glass bottle, stainless steel bottle, bamboo straw, ceramic mug, reusable tote
+                      Try searching for: plastic bag, car, electric car, bicycle, beef, chicken, solar, wind, refrigerator, cotton t-shirt, jeans, smartphone, laptop, shampoo, toothpaste, laundry detergent, concrete, steel, wood, bamboo
                     </p>
                   </div>
                 </div>

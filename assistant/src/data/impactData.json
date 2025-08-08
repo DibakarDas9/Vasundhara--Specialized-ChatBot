@@ -80,8 +80,7 @@
     "alternatives": [],
     "ecoFriendly": true,
     "description": "Bamboo is one of the most sustainable materials, growing quickly and being fully biodegradable."
-  }
-  ,
+  },
   "plastic cutlery": {
     "co2": 0.08,
     "nonBiodegradable": true,
@@ -640,6 +639,576 @@
     "pm25": {
       "name": "Particulate Matter (PM2.5)",
       "description": "Tiny particles in the air that reduce visibility and cause health problems when inhaled. Come from construction sites, unpaved roads, fields, smokestacks, or fires."
+    }
+  },
+
+  "transportation": {
+    "car": {
+      "co2": 2.3,
+      "nonBiodegradable": true,
+      "annualPollutionKg": 115,
+      "alternatives": ["public transport", "bicycle", "electric car", "walking"],
+      "synonyms": ["car", "automobile", "vehicle", "sedan", "suv"],
+      "ecoFriendly": false,
+      "description": "Cars emit significant CO2 and contribute to air pollution. Electric cars and public transport are better alternatives."
+    },
+    "electric car": {
+      "co2": 0.8,
+      "nonBiodegradable": true,
+      "annualPollutionKg": 40,
+      "alternatives": ["public transport", "bicycle", "walking"],
+      "synonyms": ["electric car", "ev", "electric vehicle", "tesla"],
+      "ecoFriendly": true,
+      "description": "Electric cars produce fewer emissions than gas cars, especially when charged with renewable energy."
+    },
+    "bicycle": {
+      "co2": 0.001,
+      "nonBiodegradable": false,
+      "annualPollutionKg": 0.05,
+      "alternatives": ["walking", "public transport"],
+      "synonyms": ["bicycle", "bike", "cycle"],
+      "ecoFriendly": true,
+      "description": "Bicycles are the most eco-friendly mode of transportation, producing virtually no emissions."
+    },
+    "bus": {
+      "co2": 0.1,
+      "nonBiodegradable": true,
+      "annualPollutionKg": 5,
+      "alternatives": ["bicycle", "walking", "train"],
+      "synonyms": ["bus", "public bus", "transit bus"],
+      "ecoFriendly": true,
+      "description": "Buses are much more efficient than cars, especially when well-utilized."
+    },
+    "train": {
+      "co2": 0.04,
+      "nonBiodegradable": true,
+      "annualPollutionKg": 2,
+      "alternatives": ["bicycle", "walking"],
+      "synonyms": ["train", "railway", "metro", "subway"],
+      "ecoFriendly": true,
+      "description": "Trains are one of the most efficient forms of transportation, especially electric trains."
+    },
+    "airplane": {
+      "co2": 0.25,
+      "nonBiodegradable": true,
+      "annualPollutionKg": 12.5,
+      "alternatives": ["train", "bus", "video conferencing"],
+      "synonyms": ["airplane", "plane", "aircraft", "flight"],
+      "ecoFriendly": false,
+      "description": "Airplanes have high emissions per passenger mile, especially for short flights."
+    },
+    "motorcycle": {
+      "co2": 0.8,
+      "nonBiodegradable": true,
+      "annualPollutionKg": 40,
+      "alternatives": ["bicycle", "electric motorcycle", "public transport"],
+      "synonyms": ["motorcycle", "bike", "scooter"],
+      "ecoFriendly": false,
+      "description": "Motorcycles are more efficient than cars but still produce significant emissions."
+    }
+  },
+
+  "energy": {
+    "coal": {
+      "co2": 2.2,
+      "nonBiodegradable": true,
+      "annualPollutionKg": 110,
+      "alternatives": ["solar", "wind", "hydroelectric", "nuclear"],
+      "synonyms": ["coal", "fossil fuel", "black coal"],
+      "ecoFriendly": false,
+      "description": "Coal is the most polluting fossil fuel, releasing large amounts of CO2 and other pollutants."
+    },
+    "natural gas": {
+      "co2": 1.8,
+      "nonBiodegradable": true,
+      "annualPollutionKg": 90,
+      "alternatives": ["solar", "wind", "hydroelectric"],
+      "synonyms": ["natural gas", "gas", "methane"],
+      "ecoFriendly": false,
+      "description": "Natural gas is cleaner than coal but still a significant source of greenhouse gases."
+    },
+    "solar": {
+      "co2": 0.04,
+      "nonBiodegradable": false,
+      "annualPollutionKg": 2,
+      "alternatives": ["wind", "hydroelectric"],
+      "synonyms": ["solar", "solar power", "photovoltaic"],
+      "ecoFriendly": true,
+      "description": "Solar energy is clean and renewable, with minimal emissions during operation."
+    },
+    "wind": {
+      "co2": 0.02,
+      "nonBiodegradable": false,
+      "annualPollutionKg": 1,
+      "alternatives": ["solar", "hydroelectric"],
+      "synonyms": ["wind", "wind power", "wind turbine"],
+      "ecoFriendly": true,
+      "description": "Wind energy is one of the cleanest forms of renewable energy."
+    },
+    "nuclear": {
+      "co2": 0.01,
+      "nonBiodegradable": true,
+      "annualPollutionKg": 0.5,
+      "alternatives": ["solar", "wind", "hydroelectric"],
+      "synonyms": ["nuclear", "nuclear power", "atomic energy"],
+      "ecoFriendly": true,
+      "description": "Nuclear power produces very low CO2 emissions but has waste disposal concerns."
+    }
+  },
+
+  "food": {
+    "beef": {
+      "co2": 13.3,
+      "nonBiodegradable": false,
+      "annualPollutionKg": 665,
+      "alternatives": ["chicken", "fish", "tofu", "beans"],
+      "synonyms": ["beef", "cow meat", "red meat"],
+      "ecoFriendly": false,
+      "description": "Beef production has the highest environmental impact of any food, requiring large amounts of land, water, and feed."
+    },
+    "chicken": {
+      "co2": 2.9,
+      "nonBiodegradable": false,
+      "annualPollutionKg": 145,
+      "alternatives": ["fish", "tofu", "beans", "vegetables"],
+      "synonyms": ["chicken", "poultry", "white meat"],
+      "ecoFriendly": false,
+      "description": "Chicken has much lower environmental impact than beef but still requires significant resources."
+    },
+    "fish": {
+      "co2": 1.7,
+      "nonBiodegradable": false,
+      "annualPollutionKg": 85,
+      "alternatives": ["tofu", "beans", "vegetables"],
+      "synonyms": ["fish", "seafood", "salmon", "tuna"],
+      "ecoFriendly": false,
+      "description": "Fish has lower emissions than meat but overfishing is a major environmental concern."
+    },
+    "tofu": {
+      "co2": 0.8,
+      "nonBiodegradable": false,
+      "annualPollutionKg": 40,
+      "alternatives": ["beans", "lentils", "vegetables"],
+      "synonyms": ["tofu", "soybean curd"],
+      "ecoFriendly": true,
+      "description": "Tofu is a low-impact protein source, especially when made from sustainably grown soybeans."
+    },
+    "beans": {
+      "co2": 0.4,
+      "nonBiodegradable": false,
+      "annualPollutionKg": 20,
+      "alternatives": ["lentils", "peas", "vegetables"],
+      "synonyms": ["beans", "legumes", "pulses"],
+      "ecoFriendly": true,
+      "description": "Beans are one of the most sustainable protein sources, requiring minimal resources to grow."
+    },
+    "rice": {
+      "co2": 2.7,
+      "annualPollutionKg": 135,
+      "alternatives": ["quinoa", "millet", "buckwheat"],
+      "synonyms": ["rice", "white rice", "brown rice"],
+      "ecoFriendly": false,
+      "description": "Rice production emits methane and requires large amounts of water."
+    },
+    "wheat": {
+      "co2": 1.4,
+      "annualPollutionKg": 70,
+      "alternatives": ["quinoa", "millet", "buckwheat"],
+      "synonyms": ["wheat", "bread", "pasta"],
+      "ecoFriendly": false,
+      "description": "Wheat has moderate environmental impact but is more efficient than rice."
+    },
+    "almonds": {
+      "co2": 2.3,
+      "annualPollutionKg": 115,
+      "alternatives": ["sunflower seeds", "pumpkin seeds", "walnuts"],
+      "synonyms": ["almonds", "almond milk"],
+      "ecoFriendly": false,
+      "description": "Almonds require large amounts of water, especially in California where most are grown."
+    },
+    "avocado": {
+      "co2": 0.8,
+      "annualPollutionKg": 40,
+      "alternatives": ["local fruits", "vegetables"],
+      "synonyms": ["avocado", "avocados"],
+      "ecoFriendly": false,
+      "description": "Avocados require significant water and are often transported long distances."
+    },
+    "coffee": {
+      "co2": 0.4,
+      "annualPollutionKg": 20,
+      "alternatives": ["tea", "herbal tea"],
+      "synonyms": ["coffee", "espresso", "latte"],
+      "ecoFriendly": false,
+      "description": "Coffee production can be sustainable but often involves deforestation and long-distance transport."
+    },
+    "chocolate": {
+      "co2": 2.9,
+      "annualPollutionKg": 145,
+      "alternatives": ["dark chocolate", "fair trade chocolate"],
+      "synonyms": ["chocolate", "cocoa", "candy"],
+      "ecoFriendly": false,
+      "description": "Chocolate production often involves deforestation and poor labor practices."
+    }
+  },
+
+  "household": {
+    "refrigerator": {
+      "co2": 0.5,
+      "annualPollutionKg": 25,
+      "alternatives": ["energy efficient refrigerator"],
+      "synonyms": ["refrigerator", "fridge", "freezer"],
+      "ecoFriendly": false,
+      "description": "Refrigerators use significant electricity. Energy-efficient models can reduce impact by 50%."
+    },
+    "washing machine": {
+      "co2": 0.3,
+      "annualPollutionKg": 15,
+      "alternatives": ["energy efficient washing machine", "hand washing"],
+      "synonyms": ["washing machine", "washer", "laundry machine"],
+      "ecoFriendly": false,
+      "description": "Washing machines use water and electricity. Cold water washes reduce energy use."
+    },
+    "dishwasher": {
+      "co2": 0.2,
+      "annualPollutionKg": 10,
+      "alternatives": ["hand washing", "energy efficient dishwasher"],
+      "synonyms": ["dishwasher", "dish washer"],
+      "ecoFriendly": false,
+      "description": "Dishwashers can be more efficient than hand washing when used properly."
+    },
+    "air conditioner": {
+      "co2": 0.8,
+      "annualPollutionKg": 40,
+      "alternatives": ["fan", "energy efficient ac", "natural ventilation"],
+      "synonyms": ["air conditioner", "ac", "cooling"],
+      "ecoFriendly": false,
+      "description": "Air conditioners use significant electricity. Energy-efficient models and proper maintenance help."
+    },
+    "heater": {
+      "co2": 1.2,
+      "annualPollutionKg": 60,
+      "alternatives": ["heat pump", "solar heating", "insulation"],
+      "synonyms": ["heater", "heating", "furnace"],
+      "ecoFriendly": false,
+      "description": "Heating systems are major energy consumers. Heat pumps are more efficient alternatives."
+    },
+    "light bulb": {
+      "co2": 0.1,
+      "annualPollutionKg": 5,
+      "alternatives": ["led bulb", "cfl bulb"],
+      "synonyms": ["light bulb", "bulb", "lamp"],
+      "ecoFriendly": false,
+      "description": "Incandescent bulbs are inefficient. LED bulbs use 90% less energy."
+    },
+    "television": {
+      "co2": 0.2,
+      "annualPollutionKg": 10,
+      "alternatives": ["energy efficient tv", "smaller screen"],
+      "synonyms": ["television", "tv", "screen"],
+      "ecoFriendly": false,
+      "description": "Larger TVs use more energy. Energy-efficient models and turning off when not in use help."
+    },
+    "computer": {
+      "co2": 0.3,
+      "annualPollutionKg": 15,
+      "alternatives": ["laptop", "energy efficient computer"],
+      "synonyms": ["computer", "pc", "desktop"],
+      "ecoFriendly": false,
+      "description": "Computers use significant electricity. Laptops are generally more efficient than desktops."
+    },
+    "phone": {
+      "co2": 0.1,
+      "annualPollutionKg": 5,
+      "alternatives": ["refurbished phone", "longer use"],
+      "synonyms": ["phone", "smartphone", "mobile"],
+      "ecoFriendly": false,
+      "description": "Phone manufacturing has high environmental impact. Using phones longer reduces impact."
+    }
+  },
+
+  "clothing": {
+    "cotton t-shirt": {
+      "co2": 2.1,
+      "annualPollutionKg": 105,
+      "alternatives": ["organic cotton t-shirt", "second-hand t-shirt", "hemp t-shirt"],
+      "synonyms": ["cotton t-shirt", "t-shirt", "tshirt"],
+      "ecoFriendly": false,
+      "description": "Cotton production uses large amounts of water and pesticides. Organic cotton is better."
+    },
+    "jeans": {
+      "co2": 23.4,
+      "annualPollutionKg": 1170,
+      "alternatives": ["organic cotton jeans", "second-hand jeans", "hemp jeans"],
+      "synonyms": ["jeans", "denim", "pants"],
+      "ecoFriendly": false,
+      "description": "Jeans production is extremely water-intensive and uses many chemicals."
+    },
+    "synthetic jacket": {
+      "co2": 5.4,
+      "annualPollutionKg": 270,
+      "alternatives": ["wool jacket", "recycled material jacket"],
+      "synonyms": ["synthetic jacket", "polyester jacket", "jacket"],
+      "ecoFriendly": false,
+      "description": "Synthetic jackets are made from petroleum-based materials and shed microplastics."
+    },
+    "leather shoes": {
+      "co2": 14.5,
+      "annualPollutionKg": 725,
+      "alternatives": ["canvas shoes", "recycled material shoes"],
+      "synonyms": ["leather shoes", "leather boots", "shoes"],
+      "ecoFriendly": false,
+      "description": "Leather production requires animal products and uses toxic chemicals for tanning."
+    },
+    "wool sweater": {
+      "co2": 3.2,
+      "annualPollutionKg": 160,
+      "alternatives": ["organic cotton sweater", "hemp sweater"],
+      "synonyms": ["wool sweater", "sweater", "jumper"],
+      "ecoFriendly": false,
+      "description": "Wool production has environmental impact but wool is biodegradable and long-lasting."
+    }
+  },
+
+  "waste": {
+    "landfill": {
+      "co2": 0.5,
+      "annualPollutionKg": 25,
+      "alternatives": ["recycling", "composting", "reducing waste"],
+      "synonyms": ["landfill", "garbage", "trash"],
+      "ecoFriendly": false,
+      "description": "Landfills produce methane and take up valuable space. Reducing waste is the best solution."
+    },
+    "recycling": {
+      "co2": 0.1,
+      "annualPollutionKg": 5,
+      "alternatives": ["reducing consumption", "reusing"],
+      "synonyms": ["recycling", "recycled", "recycle"],
+      "ecoFriendly": true,
+      "description": "Recycling reduces the need for new materials and saves energy."
+    },
+    "composting": {
+      "co2": 0.01,
+      "annualPollutionKg": 0.5,
+      "alternatives": ["reducing food waste"],
+      "synonyms": ["composting", "compost", "organic waste"],
+      "ecoFriendly": true,
+      "description": "Composting turns organic waste into nutrient-rich soil and reduces methane emissions."
+    },
+    "incineration": {
+      "co2": 0.8,
+      "annualPollutionKg": 40,
+      "alternatives": ["recycling", "composting", "reducing waste"],
+      "synonyms": ["incineration", "burning", "waste to energy"],
+      "ecoFriendly": false,
+      "description": "Incineration releases pollutants and CO2. It's better than landfills but worse than recycling."
+    }
+  },
+
+  "water": {
+    "bottled water": {
+      "co2": 0.3,
+      "annualPollutionKg": 15,
+      "alternatives": ["tap water", "filtered water", "reusable bottle"],
+      "synonyms": ["bottled water", "water bottle", "mineral water"],
+      "ecoFriendly": false,
+      "description": "Bottled water has high environmental impact due to plastic bottles and transportation."
+    },
+    "shower": {
+      "co2": 0.2,
+      "annualPollutionKg": 10,
+      "alternatives": ["shorter showers", "water-efficient showerhead"],
+      "synonyms": ["shower", "bathing"],
+      "ecoFriendly": false,
+      "description": "Showers use significant water and energy for heating. Shorter showers help."
+    },
+    "toilet flush": {
+      "co2": 0.05,
+      "annualPollutionKg": 2.5,
+      "alternatives": ["water-efficient toilet", "dual flush toilet"],
+      "synonyms": ["toilet flush", "flush"],
+      "ecoFriendly": false,
+      "description": "Toilet flushing uses significant water. Water-efficient toilets can reduce usage by 50%."
+    },
+    "lawn watering": {
+      "co2": 0.1,
+      "annualPollutionKg": 5,
+      "alternatives": ["drought-resistant plants", "rainwater collection"],
+      "synonyms": ["lawn watering", "sprinkler", "irrigation"],
+      "ecoFriendly": false,
+      "description": "Lawn watering uses large amounts of water. Drought-resistant landscaping is better."
+    }
+  },
+
+  "construction": {
+    "concrete": {
+      "co2": 0.9,
+      "annualPollutionKg": 45,
+      "alternatives": ["wood", "bamboo", "recycled materials"],
+      "synonyms": ["concrete", "cement"],
+      "ecoFriendly": false,
+      "description": "Concrete production is a major source of CO2 emissions. Wood and bamboo are more sustainable."
+    },
+    "steel": {
+      "co2": 1.8,
+      "annualPollutionKg": 90,
+      "alternatives": ["recycled steel", "wood", "bamboo"],
+      "synonyms": ["steel", "iron"],
+      "ecoFriendly": false,
+      "description": "Steel production is energy-intensive. Recycled steel has much lower impact."
+    },
+    "wood": {
+      "co2": 0.1,
+      "annualPollutionKg": 5,
+      "alternatives": ["bamboo", "recycled wood"],
+      "synonyms": ["wood", "timber", "lumber"],
+      "ecoFriendly": true,
+      "description": "Wood is renewable and stores carbon. Sustainably harvested wood is very eco-friendly."
+    },
+    "bamboo": {
+      "co2": 0.05,
+      "annualPollutionKg": 2.5,
+      "alternatives": ["wood", "recycled materials"],
+      "synonyms": ["bamboo", "bamboo wood"],
+      "ecoFriendly": true,
+      "description": "Bamboo grows quickly and is very sustainable. It's an excellent building material."
+    },
+    "glass": {
+      "co2": 0.8,
+      "annualPollutionKg": 40,
+      "alternatives": ["recycled glass", "wood"],
+      "synonyms": ["glass", "window glass"],
+      "ecoFriendly": false,
+      "description": "Glass production is energy-intensive but glass is recyclable and long-lasting."
+    }
+  },
+
+  "electronics": {
+    "smartphone": {
+      "co2": 55,
+      "annualPollutionKg": 2750,
+      "alternatives": ["refurbished phone", "longer use", "repair"],
+      "synonyms": ["smartphone", "phone", "mobile"],
+      "ecoFriendly": false,
+      "description": "Smartphone manufacturing has very high environmental impact due to rare earth metals and energy use."
+    },
+    "laptop": {
+      "co2": 422,
+      "annualPollutionKg": 21100,
+      "alternatives": ["refurbished laptop", "longer use", "repair"],
+      "synonyms": ["laptop", "computer", "notebook"],
+      "ecoFriendly": false,
+      "description": "Laptop production requires significant resources and energy. Using longer reduces impact."
+    },
+    "tablet": {
+      "co2": 105,
+      "annualPollutionKg": 5250,
+      "alternatives": ["refurbished tablet", "longer use"],
+      "synonyms": ["tablet", "ipad", "tablet computer"],
+      "ecoFriendly": false,
+      "description": "Tablets have lower impact than laptops but still require significant resources."
+    },
+    "gaming console": {
+      "co2": 89,
+      "annualPollutionKg": 4450,
+      "alternatives": ["refurbished console", "longer use"],
+      "synonyms": ["gaming console", "playstation", "xbox", "nintendo"],
+      "ecoFriendly": false,
+      "description": "Gaming consoles use significant energy and resources in production and operation."
+    },
+    "tv": {
+      "co2": 638,
+      "annualPollutionKg": 31900,
+      "alternatives": ["smaller tv", "energy efficient tv", "longer use"],
+      "synonyms": ["tv", "television", "smart tv"],
+      "ecoFriendly": false,
+      "description": "TVs have very high environmental impact, especially large models."
+    }
+  },
+
+  "personal_care": {
+    "shampoo": {
+      "co2": 0.1,
+      "annualPollutionKg": 5,
+      "alternatives": ["shampoo bar", "refillable shampoo"],
+      "synonyms": ["shampoo", "hair wash"],
+      "ecoFriendly": false,
+      "description": "Shampoo bottles contribute to plastic waste. Shampoo bars eliminate packaging."
+    },
+    "toothpaste": {
+      "co2": 0.05,
+      "annualPollutionKg": 2.5,
+      "alternatives": ["toothpaste tablets", "homemade toothpaste"],
+      "synonyms": ["toothpaste", "tooth paste"],
+      "ecoFriendly": false,
+      "description": "Toothpaste tubes are difficult to recycle. Tablets eliminate packaging."
+    },
+    "deodorant": {
+      "co2": 0.08,
+      "annualPollutionKg": 4,
+      "alternatives": ["deodorant bar", "natural deodorant"],
+      "synonyms": ["deodorant", "antiperspirant"],
+      "ecoFriendly": false,
+      "description": "Deodorant containers contribute to plastic waste. Bars eliminate packaging."
+    },
+    "makeup": {
+      "co2": 0.2,
+      "annualPollutionKg": 10,
+      "alternatives": ["natural makeup", "refillable makeup"],
+      "synonyms": ["makeup", "cosmetics", "beauty products"],
+      "ecoFriendly": false,
+      "description": "Makeup often contains microplastics and comes in non-recyclable packaging."
+    },
+    "sunscreen": {
+      "co2": 0.1,
+      "annualPollutionKg": 5,
+      "alternatives": ["reef-safe sunscreen", "mineral sunscreen"],
+      "synonyms": ["sunscreen", "sunblock", "spf"],
+      "ecoFriendly": false,
+      "description": "Many sunscreens contain chemicals harmful to marine life. Mineral sunscreens are better."
+    }
+  },
+
+  "cleaning": {
+    "laundry detergent": {
+      "co2": 0.3,
+      "annualPollutionKg": 15,
+      "alternatives": ["laundry soap", "eco-friendly detergent"],
+      "synonyms": ["laundry detergent", "detergent", "washing powder"],
+      "ecoFriendly": false,
+      "description": "Laundry detergents often contain phosphates and come in plastic bottles."
+    },
+    "dish soap": {
+      "co2": 0.1,
+      "annualPollutionKg": 5,
+      "alternatives": ["dish soap bar", "eco-friendly dish soap"],
+      "synonyms": ["dish soap", "dishwashing liquid"],
+      "ecoFriendly": false,
+      "description": "Dish soaps often contain harmful chemicals and come in plastic bottles."
+    },
+    "all-purpose cleaner": {
+      "co2": 0.2,
+      "annualPollutionKg": 10,
+      "alternatives": ["vinegar", "baking soda", "eco-friendly cleaner"],
+      "synonyms": ["all-purpose cleaner", "household cleaner"],
+      "ecoFriendly": false,
+      "description": "Many household cleaners contain harmful chemicals. Natural alternatives are safer."
+    },
+    "paper towels": {
+      "co2": 0.05,
+      "annualPollutionKg": 2.5,
+      "alternatives": ["cloth towels", "reusable rags"],
+      "synonyms": ["paper towels", "kitchen towels"],
+      "ecoFriendly": false,
+      "description": "Paper towels are single-use and contribute to deforestation. Cloth towels are reusable."
+    },
+    "disposable wipes": {
+      "co2": 0.1,
+      "annualPollutionKg": 5,
+      "alternatives": ["cloth wipes", "reusable wipes"],
+      "synonyms": ["disposable wipes", "cleaning wipes"],
+      "ecoFriendly": false,
+      "description": "Disposable wipes contain plastic and are single-use. Cloth wipes are reusable."
     }
   }
 } 
