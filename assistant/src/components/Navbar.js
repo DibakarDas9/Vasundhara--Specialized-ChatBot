@@ -41,40 +41,47 @@ const Navbar = () => {
         </ul>
         {/* Get Started Button & Dark Mode */}
         <div className="flex items-center gap-2">
-          <a
-            href="https://sdgs.un.org/goals"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:inline-block px-12 py-1.5 rounded-full font-extrabold text-2xl shadow-glow transition duration-200"
-            style={{
-              background: '#16a34a',
-              fontFamily: '"Luckiest Guy", "Comic Sans MS", cursive, Poppins, Inter, ui-sans-serif',
-              letterSpacing: '2px',
-              border: 'none',
-              boxShadow: '0 6px 32px 0 rgba(22,163,74,0.15)',
-            }}
-          >
-            <span style={{
-              color: '#fff',
-              fontWeight: 900,
-              fontSize: '2rem',
-              display: 'inline-block',
-              textShadow: '0 2px 12px rgba(22,163,74,0.18)',
-              letterSpacing: '2px',
-            }}>
-              M
+          <div className="relative group">
+            <a
+              href="https://sdgs.un.org/goals"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:inline-block px-12 py-1.5 rounded-full font-extrabold text-2xl shadow-glow transition duration-200"
+              style={{
+                background: '#16a34a',
+                fontFamily: '"Luckiest Guy", "Comic Sans MS", cursive, Poppins, Inter, ui-sans-serif',
+                letterSpacing: '2px',
+                border: 'none',
+                boxShadow: '0 6px 32px 0 rgba(22,163,74,0.15)',
+              }}
+            >
               <span style={{
-                fontFamily: 'inherit',
+                color: '#fff',
                 fontWeight: 900,
                 fontSize: '2rem',
                 display: 'inline-block',
-                margin: '0 2px',
-                background: 'linear-gradient(180deg, #FF9933 0%, #FFFFFF 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}>I</span>GA
-            </span>
-          </a>
+                textShadow: '0 2px 12px rgba(22,163,74,0.18)',
+                letterSpacing: '2px',
+              }}>
+                M
+                <span style={{
+                  fontFamily: 'inherit',
+                  fontWeight: 900,
+                  fontSize: '2rem',
+                  display: 'inline-block',
+                  margin: '0 2px',
+                  background: 'linear-gradient(180deg, #FF9933 0%, #FFFFFF 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}>I</span>GA
+              </span>
+            </a>
+            {/* Tooltip */}
+            <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-4 py-2 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50 shadow-lg">
+              Make India Great Again
+              <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-b-4 border-transparent border-b-gray-900"></div>
+            </div>
+          </div>
           <DarkModeToggle inNavbar={true} />
           {/* Mobile Menu Button */}
           <button
@@ -96,7 +103,25 @@ const Navbar = () => {
           <li><a href="#features" className="text-green-800 dark:text-green-300 hover:text-green-600 dark:hover:text-green-400 transition duration-200" onClick={e => { e.preventDefault(); document.getElementById('why-choose')?.scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false); }}>Features</a></li>
           <li><a href="#chatbot" className="text-green-800 dark:text-green-300 hover:text-green-600 dark:hover:text-green-400 transition duration-200" onClick={() => setMenuOpen(false)}>Climate Chatbot</a></li>
           <li><a href="#contact" className="text-green-800 dark:text-green-300 hover:text-green-600 dark:hover:text-green-400 transition duration-200" onClick={() => setMenuOpen(false)}>Contact</a></li>
-          <li><a href="https://sdgs.un.org/goals" target="_blank" rel="noopener noreferrer" className="px-8 py-2 rounded-full font-extrabold text-lg" style={{background: '#16a34a', color: '#fff', fontFamily: 'Poppins, Inter, ui-sans-serif', letterSpacing: '2px', border: 'none', boxShadow: '0 6px 32px 0 rgba(22,163,74,0.15)'}} onClick={() => setMenuOpen(false)}>MIGA</a></li>
+          <li>
+            <div className="relative group">
+              <a 
+                href="https://sdgs.un.org/goals" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="px-8 py-2 rounded-full font-extrabold text-lg" 
+                style={{background: '#16a34a', color: '#fff', fontFamily: 'Poppins, Inter, ui-sans-serif', letterSpacing: '2px', border: 'none', boxShadow: '0 6px 32px 0 rgba(22,163,74,0.15)'}} 
+                onClick={() => setMenuOpen(false)}
+              >
+                MIGA
+              </a>
+              {/* Tooltip for mobile */}
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-4 py-2 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50 shadow-lg">
+                Make INDIA Great Again
+                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-b-4 border-transparent border-b-gray-900"></div>
+              </div>
+            </div>
+          </li>
         </ul>
       )}
     </nav>
